@@ -24,10 +24,223 @@
     nav{display:flex;flex-wrap:wrap;gap:12px}
     nav a{padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text);background:transparent}
     nav a:hover{background:var(--soft)}
-    /* ... (rest of CSS and HTML code exactly from the canvas) ... */
+
+    .hero{margin:18px 0 26px;padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#111522,#0d111a);box-shadow:var(--shadow)}
+    .hero p{margin:.2rem 0}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;margin:6px 6px 0 0;color:var(--muted)}
+
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media(max-width:900px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.grid,.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+
+    section{margin:30px 0}
+    .section-head{display:flex;align-items:center;gap:10px;margin:12px 0 14px}
+    .section-head .line{height:1px;flex:1;background:var(--line)}
+    .section-head h2{margin:0;white-space:nowrap;font-size:1rem;letter-spacing:.12em;color:var(--muted)}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .1rem;font-size:1.05rem}
+    .card p{margin:.35rem 0}
+    .meta{color:var(--muted);font-size:.9rem}
+    .chip{display:inline-block;padding:3px 8px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;color:var(--muted);margin:6px 6px 0 0}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#111520;color:var(--text)}
+    .btn:hover{background:#0d1220}
+    .row{display:flex;flex-wrap:wrap;gap:10px}
+    .bullets{padding-left:18px}
+    .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#0f1420;margin-bottom:10px;box-shadow:var(--shadow)}
+
+    footer{margin:40px 0 12px;color:var(--muted);font-size:.9rem;text-align:center}
+      /* Mobile tweaks */
+    @media(max-width:640px){
+      .container{padding:20px}
+      nav{width:100%}
+      nav a{flex:1 1 auto;width:100%;text-align:center}
+      h1{font-size:1.6rem}
+      .hero{padding:16px}
+      .card{padding:14px}
+      .row .btn{flex:1 1 100%}
+    }
   </style>
 </head>
 <body>
-  <!-- full body content from canvas should be here -->
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1>Heriam Oliveira</h1>
+          <div class="tag">Junior Game Designer • player‑focused iteration • shipped jam prototypes</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="intro">
+      <p class="meta">Career Mission</p>
+      <p style="font-size:1.1rem">Create playful, readable systems that respect players’ time and deliver memorable moments through iteration, collaboration, and clear communication.</p>
+      <div class="row" style="margin-top:10px">
+        <a class="btn" href="mailto:heriam@heriamoliveira.com">Email me</a>
+        <a class="btn" href="https://heriamoliveira.com" target="_blank" rel="noopener">Website</a>
+        <a class="btn" href="https://heriam.itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a class="btn" href="https://github.com/JeriamJito" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div style="margin-top:10px">
+        <span class="pill">Kelowna, BC</span>
+        <span class="pill">Agile • GDD • Playtesting • Retrospectives</span>
+        <span class="pill">Unity • Godot • Trello • Figma • GitHub</span>
+      </div>
+    </section>
+
+    <!-- SKILLS / RESUME QUICK VIEW -->
+    <section id="skills">
+      <div class="section-head"><div class="line"></div><h2>SKILLS SNAPSHOT</h2><div class="line"></div></div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Technical</h3>
+          <p class="meta">Tools & capabilities I use to ship prototypes.</p>
+          <ul class="bullets">
+            <li>GDD creation • paper prototyping • level/encounter sketching</li>
+            <li>Playtest planning & facilitation • balancing • UI mock‑ups (Figma)</li>
+            <li>Agile workflows (Trello Kanban) • Git/GitHub branching & PRs</li>
+            <li>Engines & tools: Unity, Godot, Miro, Photoshop, Tabletop Simulator</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Durable</h3>
+          <p class="meta">How I show up on teams and for players.</p>
+          <ul class="bullets">
+            <li>Communication • collaboration • scope clarity • iteration cadence</li>
+            <li>Player‑centered design • usability • documentation hygiene</li>
+            <li>Facilitation (standups, 1:1s, retrospective meetings)</li>
+            <li>Storytelling & presentation (acting/theatre); team timing (concert band)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT HIGHLIGHTS -->
+    <section id="projects">
+      <div class="section-head"><div class="line"></div><h2>PROJECT HIGHLIGHTS</h2><div class="line"></div></div>
+      <div class="grid cols-3">
+        <!-- Rockbound -->
+        <article class="card">
+          <!-- Rockbound cover placeholder: replace src with your image URL from itch.io (e.g., https://img.itch.zone/...png). -->
+          <img class="thumb" alt="Rockbound cover placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23111522'/%3E%3Cstop offset='1' stop-color='%230d111a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3Ctext x='50%25' y='53%25' fill='%236ea8fe' font-family='system-ui' font-size='46' text-anchor='middle'%3ERockbound%3C/text%3E%3C/svg%3E" />
+          <p class="meta">Unity • PC/Web • 5‑person • 48h jam</p>
+          <h3>Rockbound — Game Designer</h3>
+          <p><strong>Challenge:</strong> Ship a cohesive entry under strict limitation in 48 hours.</p>
+          <p><strong>Role:</strong> Defined scope & mechanics, built levels, coordinated team; assisted bug fixes.</p>
+          <p><strong>Impact:</strong> Shipped on time; most‑downloaded on my itch.io; top‑10 for use of limitation.</p>
+          <div class="row">
+            <a class="btn" href="https://heriam.itch.io/rockbound" target="_blank" rel="noopener">Play on itch.io</a>
+          </div>
+          <div>
+            <span class="chip">Level Design</span><span class="chip">Game Feel</span><span class="chip">Scope</span>
+          </div>
+        </article>
+
+        <!-- Animal Whacker -->
+        <article class="card">
+          <!-- Animal Whacker cover placeholder: replace src with your image URL from itch.io (open the page, right-click image, "Copy Image Address"). -->
+          <img class="thumb" alt="Animal Whacker cover placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23111522'/%3E%3Cstop offset='1' stop-color='%230d111a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3Ctext x='50%25' y='53%25' fill='%236ea8fe' font-family='system-ui' font-size='46' text-anchor='middle'%3EAnimal Whacker%3C/text%3E%3C/svg%3E" />
+          <p class="meta">2‑week jam • 5‑person • MVP</p>
+          <h3>Animal Whacker — Game Designer</h3>
+          <p><strong>Challenge:</strong> Deliver a fun, testable MVP within a two‑week window.</p>
+          <p><strong>Role:</strong> Authored GDD; maintained Kanban; Figma UI; ran playtests; balanced systems; retrospectives.</p>
+          <p><strong>Impact:</strong> Shipped MVP on schedule with clean artifacts for continuity.</p>
+          <div class="row">
+            <a class="btn" href="https://docs.google.com/document/d/1HT7-CshfIlOI82JNYQeIefYDDZ97p2QhAJyDcFzU3j8/edit?usp=sharing" target="_blank" rel="noopener">Read GDD</a>
+            <a class="btn" href="https://heriam.itch.io/animal-whacker" target="_blank" rel="noopener">Play on itch.io</a>
+          </div>
+          <div>
+            <span class="chip">GDD</span><span class="chip">Playtesting</span><span class="chip">UI Mock‑ups</span>
+          </div>
+        </article>
+
+        <!-- Project:Wild -->
+        <article class="card">
+          <!-- Project:Wild cover placeholder: replace src with your image URL from itch.io or a screenshot. -->
+          <img class="thumb" alt="Project:Wild cover placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23111522'/%3E%3Cstop offset='1' stop-color='%230d111a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3Ctext x='50%25' y='53%25' fill='%23c2f970' font-family='system-ui' font-size='46' text-anchor='middle'%3EProject:Wild%3C/text%3E%3C/svg%3E" />
+          <p class="meta">Godot • Windows/Web • 4‑person • 1‑week jam</p>
+          <h3>Project:Wild — Designer / Product Owner</h3>
+          <p><strong>Challenge:</strong> Explore a frustration / inconsistent‑rules theme across platforms in one week.</p>
+          <p><strong>Role:</strong> Managed Trello & daily 1:1s; level/character design; soundtrack collaboration; GitHub workflow (branching, PRs, reviews, tags).</p>
+          <p><strong>Impact:</strong> On‑time delivery; 10+ commits/PRs; multi‑platform bug fixes.</p>
+          <div class="row">
+            <a class="btn" href="https://github.com/JeriamJito/ProjectWild" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://heriam.itch.io/project-wild" target="_blank" rel="noopener">Play on itch.io</a>
+          </div>
+          <div>
+            <span class="chip">Version Control</span><span class="chip">Team Mgmt</span><span class="chip">Level Design</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community">
+      <div class="section-head"><div class="line"></div><h2>COMMUNITY & COLLABORATION</h2><div class="line"></div></div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Endorsements</h3>
+          <p class="meta">Replace this placeholder with a short quote from a teammate or mentor.</p>
+          <p><em>“Heriam kept our jam team aligned and unblocked — clear scope, fast iteration, thoughtful playtests.”</em> — <span class="meta">Teammate (placeholder)</span></p>
+        </div>
+        <div class="card">
+          <h3>Community Contributions</h3>
+          <ul class="bullets">
+            <li><strong>OGDA Member:</strong> share jam workflows; attend meetups; exchange feedback.</li>
+            <li><strong>Dungeon Master (D&D 5e):</strong> homebrew mechanics; facilitate engaging sessions in varied settings.</li>
+            <li><strong>MTG: Commander Host:</strong> weekly open pods (4–6 players); scheduling, rules mediation, social dynamics.</li>
+            <li><strong>Kelowna Jazz Jam (sax):</strong> live ensemble coordination & improvisation — timing and listening applied to game feel.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / EDUCATION -->
+    <section id="about">
+      <div class="section-head"><div class="line"></div><h2>ABOUT</h2><div class="line"></div></div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Personal Brand</h3>
+          <p>Outgoing, team‑oriented, and facilitative. I keep communication flowing, make scope unambiguous, and iterate with players in mind. I close cycles with concise retrospective meetings and clear next steps.</p>
+          <div class="row">
+            <span class="chip">Player‑first</span><span class="chip">Collaborative</span><span class="chip">Document‑driven</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Education</h3>
+          <p><strong>Kelowna Secondary School</strong> — Psychology (player behavior), Video Game Development (prototyping), Acting & Theatre (storytelling), Concert Band (team timing).</p>
+          <p><strong>HP x edX Certificate</strong> — Game Design & Programming (Feb 2024). <a href="https://courses.edx.org/certificates/2cc80f511e9e461caf65ef3826d413b4" target="_blank" rel="noopener">View credential</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head"><div class="line"></div><h2>CONTACT</h2><div class="line"></div></div>
+      <div class="card">
+        <p>If you’re hiring for junior game design roles or want to collaborate on a jam/prototype, I’d love to talk.</p>
+        <div class="row">
+          <a class="btn" href="mailto:heriam@heriamoliveira.com">heriam@heriamoliveira.com</a>
+          <span class="btn">Kelowna, BC</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Heriam Oliveira — Built as a lightweight, host‑anywhere static site.
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
