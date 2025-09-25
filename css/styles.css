@@ -1,0 +1,223 @@
+/* ===============================
+   Global Styles & Reset
+   =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy-dark: #0B1C2C;
+  --white: #FFFFFF;
+  --blue-accent: #3A7DFF;
+  --gray-light: #F5F5F7;
+
+  --font-main: 'Montserrat', sans-serif;
+
+  --spacing-base: 8px;
+  --spacing-section: 64px;
+  --spacing-block: 24px;
+
+  --transition-speed: 150ms;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--navy-dark);
+  color: var(--white);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ===============================
+   Typography
+   =============================== */
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-block);
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-block);
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: var(--spacing-block);
+}
+
+p {
+  margin-bottom: var(--spacing-block);
+}
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ===============================
+   Layout & Sections
+   =============================== */
+section {
+  max-width: 1080px;
+  margin: auto;
+  padding: var(--spacing-section) var(--spacing-base);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: var(--spacing-block);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--gray-light);
+  margin: 48px 0;
+}
+
+/* ===============================
+   Header & Navigation
+   =============================== */
+header {
+  background: var(--navy-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-base) 0;
+  z-index: 1000;
+}
+
+nav {
+  max-width: 1080px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-base);
+}
+
+nav .brand {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-block);
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+nav ul li a:hover {
+  color: var(--blue-accent);
+}
+
+/* ===============================
+   Buttons & Links
+   =============================== */
+a, .cta-button {
+  display: inline-block;
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+a:hover, .cta-button:hover {
+  background: var(--blue-accent);
+  color: var(--navy-dark);
+  transform: scale(1.05);
+}
+
+a:active, .cta-button:active {
+  transform: scale(0.98);
+}
+
+/* ===============================
+   Intro Section
+   =============================== */
+#intro {
+  padding-top: 120px; /* account for fixed header */
+  text-align: center;
+}
+
+#intro img {
+  border-radius: 50%;
+  max-width: 160px;
+  margin: auto;
+  margin-bottom: var(--spacing-block);
+}
+
+.intro-links {
+  margin-top: var(--spacing-block);
+  display: flex;
+  gap: var(--spacing-block);
+  justify-content: center;
+}
+
+/* ===============================
+   Projects Section
+   =============================== */
+#projects article {
+  margin-bottom: var(--spacing-section);
+}
+
+#projects h3 {
+  margin-top: var(--spacing-block);
+}
+
+/* ===============================
+   Contact Section
+   =============================== */
+#contact {
+  text-align: center;
+}
+
+#contact .cta-button {
+  margin-top: var(--spacing-block);
+}
+
+/* ===============================
+   Footer
+   =============================== */
+footer {
+  text-align: center;
+  padding: var(--spacing-block);
+  font-size: 14px;
+  background: var(--navy-dark);
+  color: var(--gray-light);
+  margin-top: var(--spacing-section);
+}
+
+/* ===============================
+   Responsive Adjustments
+   =============================== */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 12px;
+  }
+
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 18px; }
+  body { font-size: 14px; }
+}
