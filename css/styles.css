@@ -8,10 +8,11 @@
 }
 
 :root {
-  --navy-dark: #0B1C2C;
-  --white: #FFFFFF;
-  --blue-accent: #3A7DFF;
-  --gray-light: #F5F5F7;
+  --bg-dark: #000000;       /* OLED-friendly black */
+  --text-light: #E5E5E5;    /* soft white (not harsh) */
+  --text-muted: #B3B3B3;    /* secondary / metadata */
+  --blue-accent: #3A7DFF;   /* primary accent */
+  --blue-accent-hover: #5A93FF;
 
   --font-main: 'Montserrat', sans-serif;
 
@@ -24,8 +25,8 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--navy-dark);
-  color: var(--white);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   line-height: 1.6;
   font-size: 16px;
 }
@@ -37,12 +38,14 @@ h1 {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: var(--spacing-block);
+  text-align: center;
 }
 
 h2 {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: var(--spacing-block);
+  text-align: center;
 }
 
 h3 {
@@ -51,8 +54,16 @@ h3 {
   margin-bottom: var(--spacing-block);
 }
 
+h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: var(--spacing-block) 0 var(--spacing-base) 0;
+  color: var(--text-muted);
+}
+
 p {
   margin-bottom: var(--spacing-block);
+  text-align: justify;
 }
 
 strong {
@@ -81,7 +92,7 @@ img {
 
 hr {
   border: none;
-  border-top: 1px solid var(--gray-light);
+  border-top: 1px solid var(--text-muted);
   margin: 48px 0;
 }
 
@@ -89,7 +100,7 @@ hr {
    Header & Navigation
    =============================== */
 header {
-  background: var(--navy-dark);
+  background: var(--bg-dark);
   position: fixed;
   top: 0;
   left: 0;
@@ -110,6 +121,7 @@ nav {
 nav .brand {
   font-size: 18px;
   font-weight: 600;
+  color: var(--text-light);
 }
 
 nav ul {
@@ -119,7 +131,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: var(--white);
+  color: var(--text-light);
   text-decoration: none;
   transition: color var(--transition-speed) ease-in-out;
 }
@@ -133,8 +145,8 @@ nav ul li a:hover {
    =============================== */
 a, .cta-button {
   display: inline-block;
-  background: var(--navy-dark);
-  color: var(--white);
+  background: var(--blue-accent);
+  color: var(--bg-dark);
   padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
@@ -143,8 +155,8 @@ a, .cta-button {
 }
 
 a:hover, .cta-button:hover {
-  background: var(--blue-accent);
-  color: var(--navy-dark);
+  background: var(--blue-accent-hover);
+  color: var(--bg-dark);
   transform: scale(1.05);
 }
 
@@ -188,9 +200,6 @@ a:active, .cta-button:active {
 /* ===============================
    Contact Section
    =============================== */
-/* ===============================
-   Contact Section
-   =============================== */
 #contact {
   text-align: center;
 }
@@ -203,7 +212,7 @@ a:active, .cta-button:active {
   display: flex;
   justify-content: center;
   gap: var(--spacing-block);
-  flex-wrap: wrap; /* allows wrapping on small screens */
+  flex-wrap: wrap;
 }
 
 .contact-buttons .cta-button {
@@ -218,8 +227,8 @@ footer {
   text-align: center;
   padding: var(--spacing-block);
   font-size: 14px;
-  background: var(--navy-dark);
-  color: var(--gray-light);
+  background: var(--bg-dark);
+  color: var(--text-muted);
   margin-top: var(--spacing-section);
 }
 
