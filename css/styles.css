@@ -188,12 +188,27 @@ a:active, .cta-button:active {
 /* ===============================
    Contact Section
    =============================== */
+/* ===============================
+   Contact Section
+   =============================== */
 #contact {
   text-align: center;
 }
 
-#contact .cta-button {
-  margin-top: var(--spacing-block);
+#contact p {
+  margin-bottom: var(--spacing-block);
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-block);
+  flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.contact-buttons .cta-button {
+  min-width: 140px;
+  text-align: center;
 }
 
 /* ===============================
