@@ -5,14 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heriam Oliveira | Game Designer</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    /* Inline quick fix to ensure text is justified */
-    p, ul {
-      text-align: justify;
-    }
-  </style>
 </head>
-<body>
+<body class="light"><!-- Default: Light Mode -->
 
   <!-- Header -->
   <header>
@@ -23,6 +17,7 @@
         <li><a href="#projects" class="cta-button">My Projects</a></li>
         <li><a href="#contact" class="cta-button">Contact Info</a></li>
       </ul>
+      <button id="theme-toggle" aria-label="Toggle light and dark mode">🌙</button>
     </nav>
   </header>
 
@@ -175,6 +170,37 @@
   <footer>
     <p>© 2025 Heriam Oliveira. All rights reserved.</p>
   </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      body.classList.remove("light", "dark");
+      body.classList.add(savedTheme);
+      toggleBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+    } else {
+      body.classList.add("light"); // Default to light mode
+      toggleBtn.textContent = "🌙";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      if (body.classList.contains("light")) {
+        body.classList.remove("light");
+        body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        body.classList.remove("dark");
+        body.classList.add("light");
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+  </script>
 
 </body>
 </html>
