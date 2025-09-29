@@ -1,19 +1,9 @@
 /* ===============================
-   Global Styles & Reset
+   Design System
    =============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
+/* Core variables */
 :root {
-  --bg-dark: #000000;       /* OLED-friendly black */
-  --text-light: #E5E5E5;    /* soft white */
-  --text-muted: #B3B3B3;    /* secondary / metadata */
-  --blue-accent: #3A7DFF;   /* primary accent */
-  --blue-accent-hover: #5A93FF;
-
   --font-main: 'Montserrat', sans-serif;
 
   --spacing-base: 8px;
@@ -23,10 +13,46 @@
   --transition-speed: 150ms;
 }
 
+/* Light Theme (default) */
+body.light {
+  --bg-color: #FFFFFF;
+  --text-light: #111111;
+  --text-muted: #444444;
+  --blue-accent: #3A7DFF;
+  --blue-accent-hover: #5A93FF;
+
+  background-color: var(--bg-color);
+  color: var(--text-light);
+}
+
+/* Dark Theme */
+body.dark {
+  --bg-color: #000000;
+  --text-light: #E5E5E5;
+  --text-muted: #B3B3B3;
+  --blue-accent: #3A7DFF;
+  --blue-accent-hover: #5A93FF;
+
+  background-color: var(--bg-color);
+  color: var(--text-light);
+}
+
+/* Smooth theme transition */
+body, header, footer, nav, section, p, h1, h2, h3, h4, a, .cta-button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===============================
+   Global Reset & Base
+   =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: var(--font-main);
-  background-color: var(--bg-dark);
-  color: var(--text-light);
   line-height: 1.6;
   font-size: 16px;
 }
@@ -63,21 +89,16 @@ h4 {
 
 p {
   margin-bottom: var(--spacing-block);
-  text-align: left; /* reverted to natural flow */
+  text-align: left;
 }
 
 ul {
   margin-bottom: var(--spacing-block);
-  text-align: left; /* reverted to natural flow */
+  text-align: left;
 }
 
-strong {
-  font-weight: 600;
-}
-
-em {
-  font-style: italic;
-}
+strong { font-weight: 600; }
+em { font-style: italic; }
 
 /* ===============================
    Layout & Sections
@@ -105,8 +126,6 @@ hr {
    Header & Navigation
    =============================== */
 header {
-  background: rgba(0, 0, 0, 0.8); /* semi-transparent black */
-  backdrop-filter: blur(6px);     /* subtle blur effect */
   position: fixed;
   top: 0;
   left: 0;
@@ -142,13 +161,28 @@ nav ul li {
   display: inline-block;
 }
 
+/* Adaptive header/footer background */
+body.light header,
+body.light footer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  color: var(--text-light);
+}
+
+body.dark header,
+body.dark footer {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  color: var(--text-light);
+}
+
 /* ===============================
    Standardized Buttons
    =============================== */
 a, .cta-button {
   display: inline-block;
   background: var(--blue-accent);
-  color: var(--text-light); /* white text */
+  color: var(--text-light);
   padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
@@ -164,6 +198,23 @@ a:hover, .cta-button:hover {
 
 a:active, .cta-button:active {
   transform: scale(0.98);
+}
+
+/* ===============================
+   Theme Toggle Button
+   =============================== */
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: var(--spacing-block);
+  color: var(--text-light);
+  transition: transform var(--transition-speed);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.2);
 }
 
 /* ===============================
@@ -227,12 +278,9 @@ a:active, .cta-button:active {
    Footer
    =============================== */
 footer {
-  background: rgba(0, 0, 0, 0.8); /* match nav */
-  backdrop-filter: blur(6px);     /* subtle blur */
   text-align: center;
   padding: var(--spacing-block);
   font-size: 14px;
-  color: var(--text-muted);
   margin-top: var(--spacing-section);
 }
 
