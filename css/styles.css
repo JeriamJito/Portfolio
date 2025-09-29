@@ -9,7 +9,7 @@
 
 :root {
   --bg-dark: #000000;       /* OLED-friendly black */
-  --text-light: #E5E5E5;    /* soft white (not harsh) */
+  --text-light: #E5E5E5;    /* soft white */
   --text-muted: #B3B3B3;    /* secondary / metadata */
   --blue-accent: #3A7DFF;   /* primary accent */
   --blue-accent-hover: #5A93FF;
@@ -66,6 +66,11 @@ p {
   text-align: justify;
 }
 
+ul {
+  margin-bottom: var(--spacing-block);
+  text-align: justify;
+}
+
 strong {
   font-weight: 600;
 }
@@ -100,7 +105,8 @@ hr {
    Header & Navigation
    =============================== */
 header {
-  background: var(--bg-dark);
+  background: rgba(0, 0, 0, 0.8); /* semi-transparent black */
+  backdrop-filter: blur(6px);     /* subtle blur effect */
   position: fixed;
   top: 0;
   left: 0;
@@ -127,21 +133,17 @@ nav .brand {
 nav ul {
   list-style: none;
   display: flex;
-  gap: var(--spacing-block);
+  gap: var(--spacing-base);
+  margin: 0;
+  padding: 0;
 }
 
-nav ul li a {
-  color: var(--text-light);
-  text-decoration: none;
-  transition: color var(--transition-speed) ease-in-out;
-}
-
-nav ul li a:hover {
-  color: var(--blue-accent);
+nav ul li {
+  display: inline-block;
 }
 
 /* ===============================
-   Buttons & Links
+   Standardized Buttons
    =============================== */
 a, .cta-button {
   display: inline-block;
@@ -151,12 +153,12 @@ a, .cta-button {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: all var(--transition-speed) ease-in-out;
+  transition: transform var(--transition-speed) ease-in-out,
+              background var(--transition-speed) ease-in-out;
 }
 
 a:hover, .cta-button:hover {
   background: var(--blue-accent-hover);
-  color: var(--bg-dark);
   transform: scale(1.05);
 }
 
@@ -184,6 +186,7 @@ a:active, .cta-button:active {
   display: flex;
   gap: var(--spacing-block);
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* ===============================
@@ -224,10 +227,11 @@ a:active, .cta-button:active {
    Footer
    =============================== */
 footer {
+  background: rgba(0, 0, 0, 0.8); /* match nav */
+  backdrop-filter: blur(6px);     /* subtle blur */
   text-align: center;
   padding: var(--spacing-block);
   font-size: 14px;
-  background: var(--bg-dark);
   color: var(--text-muted);
   margin-top: var(--spacing-section);
 }
