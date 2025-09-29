@@ -63,12 +63,12 @@ h4 {
 
 p {
   margin-bottom: var(--spacing-block);
-  text-align: justify;
+  text-align: left; /* reverted to natural flow */
 }
 
 ul {
   margin-bottom: var(--spacing-block);
-  text-align: justify;
+  text-align: left; /* reverted to natural flow */
 }
 
 strong {
@@ -145,10 +145,10 @@ nav ul li {
 /* ===============================
    Standardized Buttons
    =============================== */
-a, a, .cta-button {
+a, .cta-button {
   display: inline-block;
   background: var(--blue-accent);
-  color: var(--text-light); /* now white */
+  color: var(--text-light); /* white text */
   padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
@@ -156,7 +156,6 @@ a, a, .cta-button {
   transition: transform var(--transition-speed) ease-in-out,
               background var(--transition-speed) ease-in-out;
 }
-
 
 a:hover, .cta-button:hover {
   background: var(--blue-accent-hover);
