@@ -1,128 +1,4 @@
 /* ===============================
-   Design System
-   =============================== */
-
-/* Core variables */
-:root {
-  --font-main: 'Montserrat', sans-serif;
-
-  --spacing-base: 8px;
-  --spacing-section: 64px;
-  --spacing-block: 24px;
-
-  --transition-speed: 150ms;
-}
-
-/* Light Theme (default) */
-body.light {
-  --bg-color: #FFFFFF;
-  --text-light: #111111;
-  --text-muted: #444444;
-  --blue-accent: #3A7DFF;
-  --blue-accent-hover: #5A93FF;
-
-  background-color: var(--bg-color);
-  color: var(--text-light);
-}
-
-/* Dark Theme */
-body.dark {
-  --bg-color: #000000;
-  --text-light: #E5E5E5;
-  --text-muted: #B3B3B3;
-  --blue-accent: #3A7DFF;
-  --blue-accent-hover: #5A93FF;
-
-  background-color: var(--bg-color);
-  color: var(--text-light);
-}
-
-/* Smooth theme transition */
-body, header, footer, nav, section, p, h1, h2, h3, h4, a, .cta-button {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* ===============================
-   Global Reset & Base
-   =============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-main);
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-/* ===============================
-   Typography
-   =============================== */
-h1 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: var(--spacing-block);
-  text-align: center;
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: var(--spacing-block);
-  text-align: center;
-}
-
-h3 {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: var(--spacing-block);
-}
-
-h4 {
-  font-size: 18px;
-  font-weight: 500;
-  margin: var(--spacing-block) 0 var(--spacing-base) 0;
-  color: var(--text-muted);
-}
-
-p {
-  margin-bottom: var(--spacing-block);
-  text-align: left;
-}
-
-ul {
-  margin-bottom: var(--spacing-block);
-  text-align: left;
-}
-
-strong { font-weight: 600; }
-em { font-style: italic; }
-
-/* ===============================
-   Layout & Sections
-   =============================== */
-section {
-  max-width: 1080px;
-  margin: auto;
-  padding: var(--spacing-section) var(--spacing-base);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: var(--spacing-block);
-}
-
-hr {
-  border: none;
-  border-top: 1px solid var(--text-muted);
-  margin: 48px 0;
-}
-
-/* ===============================
    Header & Navigation
    =============================== */
 header {
@@ -141,6 +17,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--spacing-base);
+  position: relative; /* required for absolute centering */
 }
 
 nav .brand {
@@ -149,40 +26,71 @@ nav .brand {
   color: var(--text-light);
 }
 
+/* Center nav items to viewport, not relative space */
 nav ul {
   list-style: none;
   display: flex;
   gap: var(--spacing-base);
   margin: 0;
   padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-nav ul li {
-  display: inline-block;
-}
-
-/* Adaptive header/footer background */
-body.light header,
-body.light footer {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(6px);
+/* Nav links = text only, not buttons */
+nav ul li a {
+  background: none;
   color: var(--text-light);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
-body.dark header,
-body.dark footer {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(6px);
-  color: var(--text-light);
+nav ul li a:hover {
+  color: var(--blue-accent);
+  transform: scale(1.05);
 }
 
 /* ===============================
-   Standardized Buttons
+   Theme Toggle
    =============================== */
-a, .cta-button {
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: var(--spacing-block);
+  color: var(--text-light);
+  transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.2);
+  color: var(--blue-accent);
+}
+
+/* ===============================
+   Intro Section Fixes
+   =============================== */
+#intro p {
+  max-width: 70ch; /* improved readability */
+  margin: 0 auto var(--spacing-block) auto; /* center text block */
+}
+
+#intro p:last-of-type {
+  margin-bottom: 32px; /* extra spacing before CTA buttons */
+}
+
+/* ===============================
+   CTA Buttons (consistent in both themes)
+   =============================== */
+a.cta-button {
   display: inline-block;
   background: var(--blue-accent);
-  color: var(--text-light);
+  color: #ffffff; /* always white text */
   padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
@@ -191,109 +99,11 @@ a, .cta-button {
               background var(--transition-speed) ease-in-out;
 }
 
-a:hover, .cta-button:hover {
+a.cta-button:hover {
   background: var(--blue-accent-hover);
   transform: scale(1.05);
 }
 
-a:active, .cta-button:active {
+a.cta-button:active {
   transform: scale(0.98);
-}
-
-/* ===============================
-   Theme Toggle Button
-   =============================== */
-#theme-toggle {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: var(--spacing-block);
-  color: var(--text-light);
-  transition: transform var(--transition-speed);
-}
-
-#theme-toggle:hover {
-  transform: scale(1.2);
-}
-
-/* ===============================
-   Intro Section
-   =============================== */
-#intro {
-  padding-top: 120px; /* account for fixed header */
-  text-align: center;
-}
-
-#intro img {
-  border-radius: 50%;
-  max-width: 160px;
-  margin: auto;
-  margin-bottom: var(--spacing-block);
-}
-
-.intro-links {
-  margin-top: var(--spacing-block);
-  display: flex;
-  gap: var(--spacing-block);
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ===============================
-   Projects Section
-   =============================== */
-#projects article {
-  margin-bottom: var(--spacing-section);
-}
-
-#projects h3 {
-  margin-top: var(--spacing-block);
-}
-
-/* ===============================
-   Contact Section
-   =============================== */
-#contact {
-  text-align: center;
-}
-
-#contact p {
-  margin-bottom: var(--spacing-block);
-}
-
-.contact-buttons {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-block);
-  flex-wrap: wrap;
-}
-
-.contact-buttons .cta-button {
-  min-width: 140px;
-  text-align: center;
-}
-
-/* ===============================
-   Footer
-   =============================== */
-footer {
-  text-align: center;
-  padding: var(--spacing-block);
-  font-size: 14px;
-  margin-top: var(--spacing-section);
-}
-
-/* ===============================
-   Responsive Adjustments
-   =============================== */
-@media (max-width: 768px) {
-  nav ul {
-    gap: 12px;
-  }
-
-  h1 { font-size: 28px; }
-  h2 { font-size: 22px; }
-  h3 { font-size: 18px; }
-  body { font-size: 14px; }
 }
